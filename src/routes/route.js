@@ -1,9 +1,6 @@
-const express = require('express');
-
-const router = express.Router();
-
-router.get('/test-me', function (req, res) {
-    res.send('My first ever api!')
-});
-
-module.exports = router;
+const express=require('express')
+const router=express.Router()
+const urlController=require('../controllers/urlController')
+router.post('/shortenUrl',urlController.urlShortner)
+router.get('/:urlCode',urlController.urlRedirector)
+module.exports=router
