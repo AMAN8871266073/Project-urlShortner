@@ -30,7 +30,7 @@ const isValidRequestBody = function (requestBody) {
   return Object.keys(requestBody).length > 0
 }
 /////////////////////////Api to shorten long url
-const urlShortner = async function (req, res) {
+const shortenUrl = async function (req, res) {
   let requestBody = req.body
   let url = req.body.url
   let givenUrl = url.trim()
@@ -71,7 +71,7 @@ const urlShortner = async function (req, res) {
   }
 }
 ////////////////////////////////////////////////////////api to redirect to long url
-const urlRedirector = async function (req, res) {
+const redirectUrl = async function (req, res) {
   let code = req.params.urlCode
   let shortCode = code.trim()
   if (!isValid(shortCode)) {
@@ -92,5 +92,4 @@ const urlRedirector = async function (req, res) {
   res.redirect(301, path)
 }
 /////////////////////////////////////////////////////////////////////
-module.exports.urlShortner = urlShortner
-module.exports.urlRedirector = urlRedirector
+module.exports ={shortenUrl,redirectUrl }
